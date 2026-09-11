@@ -924,6 +924,53 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &660027784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 660027786}
+  - component: {fileID: 660027785}
+  m_Layer: 0
+  m_Name: TowerPlacer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &660027785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660027784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ace86ed48354bd895c1900d5ed8cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerPlacer
+  placementMap: {fileID: 1904221153}
+  nonPlaceableMap: {fileID: 622423494}
+  ghostPrefab: {fileID: 3483272009275056707, guid: d07913493c6ba4f31a84ad2e2e42d557, type: 3}
+--- !u!4 &660027786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660027784}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.37808, y: -0.15527, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &734335829
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,6 +1137,7 @@ GameObject:
   - component: {fileID: 1018059109}
   - component: {fileID: 1018059108}
   - component: {fileID: 1018059107}
+  - component: {fileID: 1018059110}
   m_Layer: 5
   m_Name: TowerBTN (Wizard)
   m_TagString: Untagged
@@ -1160,7 +1208,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1018059108}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1018059110}
+        m_TargetAssemblyTypeName: TowerSelectionUI, Assembly-CSharp
+        m_MethodName: SelectTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 3010545978365701208, guid: 7bf3ac1f16dc14394b93121102b28651, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1018059108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1199,6 +1259,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018059105}
   m_CullTransparentMesh: 1
+--- !u!114 &1018059110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018059105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b625380c19f1944b295080ec8608e36a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerSelectionUI
 --- !u!1 &1822939750
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,6 +3112,7 @@ GameObject:
   - component: {fileID: 1932744586}
   - component: {fileID: 1932744585}
   - component: {fileID: 1932744584}
+  - component: {fileID: 1932744587}
   m_Layer: 5
   m_Name: TowerBTN (Archer)
   m_TagString: Untagged
@@ -3110,7 +3183,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1932744585}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1932744587}
+        m_TargetAssemblyTypeName: TowerSelectionUI, Assembly-CSharp
+        m_MethodName: SelectTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5588746113290006993, guid: c2bab51f805c6492894e5e6b2f3e41d9, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1932744585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3149,6 +3234,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932744582}
   m_CullTransparentMesh: 1
+--- !u!114 &1932744587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932744582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b625380c19f1944b295080ec8608e36a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerSelectionUI
 --- !u!1 &2052349780
 GameObject:
   m_ObjectHideFlags: 0
@@ -3262,3 +3359,4 @@ SceneRoots:
   - {fileID: 164363713}
   - {fileID: 2052349784}
   - {fileID: 913584403}
+  - {fileID: 660027786}
