@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
             Enemy e = target.GetComponent<Enemy>();
             e.health -= 1;
             if(e.health <= 0)
-            {
+            {CoinManager.instance.UpdateCoins(1);
                 Destroy(target.gameObject);
             }
 
