@@ -1,5 +1,6 @@
 {
   "dependencies": {
+
     "com.unity.2d.animation": "16.0.0",
     "com.unity.2d.aseprite": "6.0.0",
     "com.unity.2d.psdimporter": "15.0.0",
@@ -59,5 +60,6 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
+    
   }
 }
