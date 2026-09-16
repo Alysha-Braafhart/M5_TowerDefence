@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3532553368785557321}
   - component: {fileID: 980919084597298290}
   - component: {fileID: 5930979325633330149}
+  - component: {fileID: 206361620443908039}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: Untagged
@@ -109,4 +110,62 @@ MonoBehaviour:
   fireRate: 1.5
   projectilePrefab: {fileID: 5320027615512627529, guid: e1d56916a535b4a088bd57ccf952578c, type: 3}
   firePoint: {fileID: 3532553368785557321}
+  upgradeStages:
+  - range: 7
+    fireRate: 2
+    sprite: {fileID: 21300000, guid: 847b95d1d89897d43b748c2e92b48efd, type: 3}
+    price: 20
+  - range: 10
+    fireRate: 5
+    sprite: {fileID: 21300000, guid: f6165d8f043547b4f89e7568f50dd048, type: 3}
+    price: 30
+  upgradeStage: 0
+  TowerUpgradeUIPrefab: {fileID: 4320361677771049999, guid: c9a2bf77e84a7468d95a3ca69b599132, type: 3}
+  cloudPS: {fileID: 6404751698777113776, guid: 8e66529499c594d188a8eb4010083488, type: 3}
   towerPrice: 10
+--- !u!61 &206361620443908039
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3010545978365701208}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 1.26}
+    newSize: {x: 1.5, y: 1.26}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.5, y: 1.26}
+  m_EdgeRadius: 0

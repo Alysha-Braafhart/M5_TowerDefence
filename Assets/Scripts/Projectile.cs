@@ -1,9 +1,14 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
     public float speed = 8f;
     public Transform target;
+    public GameObject hitPS;
+
+    public AudioClip hitSFX;
+
     void Update()
     {
         if(target == null)
@@ -28,6 +33,8 @@ public class Projectile : MonoBehaviour
                 Destroy(target.gameObject);
             }
 
+            Instantiate(hitPS, transform.position, Quaternion.identity);
+            AudioManager.Instance.PlaySFX(hitSFX);
             Destroy(gameObject);
         }
 ;    }

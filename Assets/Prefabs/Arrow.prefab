@@ -107,3 +107,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   speed: 6
   target: {fileID: 0}
+  hitPS: {fileID: 1810720922486185991, guid: debde9ca8d02f4cb8b9b715f7f7aa4b9, type: 3}
+  hitSFX: {fileID: 8300000, guid: 0f4ab3424e5860e44addeaeea2cda286, type: 3}

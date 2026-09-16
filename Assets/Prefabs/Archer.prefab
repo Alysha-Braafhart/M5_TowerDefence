@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5029653440298471111}
   - component: {fileID: 7512861053848559602}
   - component: {fileID: 914094822825817739}
+  - component: {fileID: 3701689768610919389}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -109,4 +110,62 @@ MonoBehaviour:
   fireRate: 1
   projectilePrefab: {fileID: 6369568251932329998, guid: e568d190fef074c52aad707e007c74aa, type: 3}
   firePoint: {fileID: 5029653440298471111}
+  upgradeStages:
+  - range: 5
+    fireRate: 1.5
+    sprite: {fileID: 21300000, guid: d1371205877538447ad2ea473179746d, type: 3}
+    price: 7
+  - range: 9
+    fireRate: 3
+    sprite: {fileID: 21300000, guid: 49763f91ff9a68644897226748ef2f76, type: 3}
+    price: 20
+  upgradeStage: 0
+  TowerUpgradeUIPrefab: {fileID: 4320361677771049999, guid: c9a2bf77e84a7468d95a3ca69b599132, type: 3}
+  cloudPS: {fileID: 1810720922486185991, guid: 907630b890ab840639147be25c8ba2a5, type: 3}
   towerPrice: 5
+--- !u!61 &3701689768610919389
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588746113290006993}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.3, y: 1.66}
+    newSize: {x: 1.3, y: 1.66}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.3, y: 1.66}
+  m_EdgeRadius: 0
