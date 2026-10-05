@@ -10,6 +10,8 @@ public class TowerUpgradeUI : MonoBehaviour
      public TextMeshProUGUI priceTxt;
 
      private bool justOpened = true;
+     
+    
 
    private void Awake()
     {

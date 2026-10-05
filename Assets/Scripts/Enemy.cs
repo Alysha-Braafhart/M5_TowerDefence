@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
     public int health = 1;
     public Transform[] waypoints;
 
+    public int coinEarning = 5;
+
     public int currentWayPoint = 0;
     void Update()
     {

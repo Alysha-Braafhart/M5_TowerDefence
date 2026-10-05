@@ -123,6 +123,7 @@ MonoBehaviour:
   TowerUpgradeUIPrefab: {fileID: 4320361677771049999, guid: c9a2bf77e84a7468d95a3ca69b599132, type: 3}
   cloudPS: {fileID: 1810720922486185991, guid: 907630b890ab840639147be25c8ba2a5, type: 3}
   towerPrice: 5
+  placedSFX: {fileID: 8300000, guid: bb0b90a86e364544c9d22537631249e8, type: 3}
 --- !u!61 &3701689768610919389
 BoxCollider2D:
   m_ObjectHideFlags: 0

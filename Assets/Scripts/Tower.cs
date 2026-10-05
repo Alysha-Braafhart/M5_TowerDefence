@@ -28,10 +28,22 @@ public class Tower : MonoBehaviour
 
     private float fireCooldown = 0f;
 
+    public AudioClip placedSFX;
+
+    private void Start()
+    {
+        
+    }
+
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
-        Instantiate(cloudPS, transform.position, Quaternion.identity);
+        GameObject go = Instantiate(cloudPS, transform.position, Quaternion.identity);
+        go.GetComponent<ParticleSystem>().Play();
+
+        Debug.Log(go.transform.position);
+
+
 
     }
 
@@ -89,6 +101,7 @@ public class Tower : MonoBehaviour
         CoinManager.instance.UpdateCoins(-currentUpgradeStage.price);
         upgradeStage += 1;
         Instantiate(cloudPS, transform.position, Quaternion.identity);
+        AudioManager.Instance.PlaySFX(placedSFX);
     }
 
     private void OnMouseDown()

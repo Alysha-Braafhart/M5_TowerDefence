@@ -108,4 +108,7 @@ MonoBehaviour:
   speed: 3
   health: 2
   waypoints: []
+  coinEarning: 10
+  easyEnemies: {fileID: 0}
+  hardEnemies: {fileID: 0}
   currentWayPoint: 0

@@ -105,3 +105,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c53a7ed81718d4735b56b609a736ec6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GhostTower
+  canNotPlaceSFX: {fileID: 8300000, guid: 14346515120b4f04a8b9092393587c2f, type: 3}

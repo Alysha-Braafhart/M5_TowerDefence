@@ -5,6 +5,8 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 8f;
     public Transform target;
+    public GameObject easyEnemies;
+    public GameObject hardEnemies;
     public GameObject hitPS;
 
     public AudioClip hitSFX;
@@ -29,8 +31,9 @@ public class Projectile : MonoBehaviour
             Enemy e = target.GetComponent<Enemy>();
             e.health -= 1;
             if(e.health <= 0)
-            {CoinManager.instance.UpdateCoins(1);
+            {CoinManager.instance.UpdateCoins(e.coinEarning);
                 Destroy(target.gameObject);
+                
             }
 
             Instantiate(hitPS, transform.position, Quaternion.identity);

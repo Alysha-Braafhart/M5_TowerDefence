@@ -12,6 +12,10 @@ public class TowerPlacer : MonoBehaviour
     public GameObject ghostPrefab;
     private HashSet<Vector3Int> occupiedTiles = new HashSet<Vector3Int>();
     private GameObject ghostInstance;
+
+     public AudioClip canNotPlaceSFX;
+
+    public AudioClip canPlaceSFX;
     void Update()
     {
         HandlePlacementHover();
@@ -23,6 +27,7 @@ public class TowerPlacer : MonoBehaviour
         if(TowerSelectionUI.SelectedTowerPrefab == null)
         {
             if(ghostInstance != null)
+            AudioManager.Instance.PlaySFX(canPlaceSFX);
                 Destroy(ghostInstance);
             return;
         }
@@ -50,8 +55,9 @@ public class TowerPlacer : MonoBehaviour
     void HandlePlacementClick()
     {
         if (!Input.GetMouseButtonDown(0)) return;
+        
         if(TowerSelectionUI.SelectedTowerPrefab == null) return;
-
+        AudioManager.Instance.PlaySFX(canNotPlaceSFX);
         if(EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
         return;
 
@@ -61,7 +67,8 @@ public class TowerPlacer : MonoBehaviour
         Vector3Int cellPos = placementMap.WorldToCell(mouseWorldPos);
 
         if(!placementMap.HasTile(cellPos)) return;
-        if (occupiedTiles.Contains(cellPos)) return;
+        if (occupiedTiles.Contains(cellPos)) 
+        return;
 
         Instantiate(TowerSelectionUI.SelectedTowerPrefab, ghostInstance.transform.position, quaternion.identity);
 
