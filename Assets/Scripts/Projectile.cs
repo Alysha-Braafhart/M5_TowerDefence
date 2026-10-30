@@ -3,13 +3,19 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed = 8f;
-    public Transform target;
-    public GameObject easyEnemies;
-    public GameObject hardEnemies;
-    public GameObject hitPS;
+   [SerializeField] private float speed = 8f;
+    private Transform target;
+    public Transform Target
+    {
+        get{return target;}
+        set{target = value;}
+    }
+    [SerializeField] private GameObject easyEnemies;
+    [SerializeField] private GameObject hardEnemies;
+    [SerializeField] private GameObject  harderEnemies;
+    [SerializeField] private GameObject hitPS;
 
-    public AudioClip hitSFX;
+    [SerializeField] private AudioClip hitSFX;
 
     void Update()
     {
@@ -29,9 +35,9 @@ public class Projectile : MonoBehaviour
         if(Vector2.Distance(transform.position, target.position) < 0.15f)
         {
             Enemy e = target.GetComponent<Enemy>();
-            e.health -= 1;
-            if(e.health <= 0)
-            {CoinManager.instance.UpdateCoins(e.coinEarning);
+            e.Health -= 1;
+            if(e.Health <= 0)
+            {CoinManager.instance.UpdateCoins(e.CoinEarning);
                 Destroy(target.gameObject);
                 
             }

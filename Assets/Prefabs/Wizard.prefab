@@ -88,7 +88,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.5, y: 1.26}
+  m_Size: {x: 29.53125, y: 16.609375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -107,7 +107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
   range: 5
-  fireRate: 1.5
   projectilePrefab: {fileID: 5320027615512627529, guid: e1d56916a535b4a088bd57ccf952578c, type: 3}
   firePoint: {fileID: 3532553368785557321}
   upgradeStages:
@@ -119,11 +118,10 @@ MonoBehaviour:
     fireRate: 5
     sprite: {fileID: 21300000, guid: f6165d8f043547b4f89e7568f50dd048, type: 3}
     price: 30
-  upgradeStage: 0
   TowerUpgradeUIPrefab: {fileID: 4320361677771049999, guid: c9a2bf77e84a7468d95a3ca69b599132, type: 3}
   cloudPS: {fileID: 1810720922486185991, guid: 907630b890ab840639147be25c8ba2a5, type: 3}
   towerPrice: 10
-  placedSFX: {fileID: 8300000, guid: a07fa6355c952fa428bff668f695a19c, type: 3}
+  upgradeSFX: {fileID: 8300000, guid: 39e58ece35424454295644cc6ab7778c, type: 3}
 --- !u!61 &206361620443908039
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -163,7 +161,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.5, y: 1.26}
-    newSize: {x: 1.5, y: 1.26}
+    newSize: {x: 29.53125, y: 16.609375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

@@ -3,32 +3,66 @@ using UnityEngine;
 [System.Serializable]
 public class TowerUpgradeStage
 {
-    public float range;
-    public float fireRate;
-    public Sprite sprite;
-    public int price;
+   [SerializeField] private float range;
+    public float Range 
+    {
+        get{return range;}
+    }
+
+
+    [SerializeField] private float fireRate;
+    public float FireRate
+    {
+        get{return fireRate;}
+    }
+    [SerializeField] private Sprite sprite;
+    public Sprite Sprite
+    {
+        get{return sprite;}
+    }
+    [SerializeField] private int price;
+    public int Price
+    {
+        get{return price;}
+    }
 }
 
 public class Tower : MonoBehaviour
 {
-    public float range = 3f;
-    public float fireRate = 1f;
-    public GameObject projectilePrefab;
-    public Transform firePoint;
+    [SerializeField] private float range = 3f;
+    [SerializeField] private float fireRate = 1f;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform firePoint;
 
-    public TowerUpgradeStage [] upgradeStages;
-    public int upgradeStage = 0;
+    [SerializeField] private TowerUpgradeStage [] upgradeStages;
+
+    public TowerUpgradeStage [] UpgradeStages
+    {
+        get{return upgradeStages;}
+        set{upgradeStages = value;}
+    }
+    private int upgradeStage = 0;
+    public int UpgradeStage
+    {
+        get{return upgradeStage;}
+        set{upgradeStage = value;}
+    }
     private SpriteRenderer sr;
-    public GameObject TowerUpgradeUIPrefab;
+    [SerializeField] private GameObject TowerUpgradeUIPrefab;
     private GameObject currentUI;
 
-    public GameObject cloudPS;
+    [SerializeField] private GameObject cloudPS;
 
-    public int towerPrice = 1;
+    [SerializeField] private int towerPrice = 1;
+    public int TowerPrice
+    {
+        get{return towerPrice;}
+        set{towerPrice = value;}
+    }
 
     private float fireCooldown = 0f;
 
-    public AudioClip placedSFX;
+    [SerializeField] private AudioClip upgradeSFX;
 
     private void Start()
     {
@@ -73,9 +107,9 @@ public class Tower : MonoBehaviour
 
             if(dist <= range)
             {
-                if(e.currentWayPoint > bestProgress)
+                if(e.CurrentWayPoint > bestProgress)
                 {
-                    bestProgress = e.currentWayPoint;
+                    bestProgress = e.CurrentWayPoint;
                     best = e;
                 }
             }
@@ -88,20 +122,20 @@ public class Tower : MonoBehaviour
     {
         GameObject p = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         Projectile pr = p.GetComponent<Projectile>();
-        pr.target = target.transform;
+        pr.Target = target.transform;
     }
 
     public void Upgrade()
     {
         TowerUpgradeStage currentUpgradeStage = upgradeStages[upgradeStage];
 
-        range = currentUpgradeStage.range;
-        fireRate = currentUpgradeStage.fireRate;
-        sr.sprite = currentUpgradeStage.sprite;
-        CoinManager.instance.UpdateCoins(-currentUpgradeStage.price);
+        range = currentUpgradeStage.Range;
+        fireRate = currentUpgradeStage.FireRate;
+        sr.sprite = currentUpgradeStage.Sprite;
+        CoinManager.instance.UpdateCoins(-currentUpgradeStage.Price);
         upgradeStage += 1;
         Instantiate(cloudPS, transform.position, Quaternion.identity);
-        AudioManager.Instance.PlaySFX(placedSFX);
+        AudioManager.Instance.PlaySFX(upgradeSFX);
     }
 
     private void OnMouseDown()
@@ -112,11 +146,11 @@ public class Tower : MonoBehaviour
         }
 
         TowerUpgradeUI currentUpgradeUI = currentUI.GetComponent<TowerUpgradeUI>();
-        currentUpgradeUI.tower = this;
+        currentUpgradeUI.Tower = this;
 
         currentUI.transform.position = Input.mousePosition + new Vector3(50, -50);
 
         if(upgradeStage >= upgradeStages.Length) return;
-        currentUpgradeUI.priceTxt.text = upgradeStages[upgradeStage].price.ToString();
+        currentUpgradeUI.PriceTxt.text = upgradeStages[upgradeStage].Price.ToString();
     }
 }

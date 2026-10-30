@@ -5,9 +5,18 @@ using TMPro;
 public class CoinManager : MonoBehaviour
 {
     public static CoinManager instance;
-    public int coins;
+    [SerializeField] private int coins;
+    public int Coins
+    {
+        get{return coins;}
+        set{coins = value;}
+    }
 
-    public TextMeshProUGUI coinTxt;
+    [SerializeField] private TextMeshProUGUI coinTxt;
+    public TextMeshProUGUI CoinTxt
+    {
+        get{return coinTxt;}
+    }
 
     void Awake()
     {
@@ -17,8 +26,8 @@ public class CoinManager : MonoBehaviour
 
     public void UpdateCoins(int changeAmount)
     {
-        coins += changeAmount;
+        Coins += changeAmount;
 
-        coinTxt.text = coins.ToString();
+        CoinTxt.text = Coins.ToString();
     }
 }

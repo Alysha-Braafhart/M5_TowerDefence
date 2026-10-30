@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b0692ce8ebd47968f92dbd595c31d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  speed: 8
-  target: {fileID: 0}
+  easyEnemies: {fileID: 7222892848038719790, guid: 3a4fb095693db4ae2ad22fa6cbc4ce1e, type: 3}
+  hardEnemies: {fileID: 1120547491656640806, guid: 13549b9046207452a8181cc2643b68e3, type: 3}
   hitPS: {fileID: 1810720922486185991, guid: debde9ca8d02f4cb8b9b715f7f7aa4b9, type: 3}
   hitSFX: {fileID: 8300000, guid: 0f4ab3424e5860e44addeaeea2cda286, type: 3}

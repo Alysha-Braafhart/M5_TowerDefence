@@ -6,16 +6,16 @@ using Unity.Mathematics;
 
 public class TowerPlacer : MonoBehaviour
 {
-    public Tilemap placementMap;
-    public Tilemap nonPlaceableMap;
+    [SerializeField] private Tilemap placementMap;
+    [SerializeField] private Tilemap nonPlaceableMap;
 
-    public GameObject ghostPrefab;
+    [SerializeField] private GameObject ghostPrefab;
     private HashSet<Vector3Int> occupiedTiles = new HashSet<Vector3Int>();
     private GameObject ghostInstance;
 
-     public AudioClip canNotPlaceSFX;
+     [SerializeField] private AudioClip canNotPlaceSFX;
 
-    public AudioClip canPlaceSFX;
+    [SerializeField] private AudioClip canPlaceSFX;
     void Update()
     {
         HandlePlacementHover();
@@ -27,7 +27,6 @@ public class TowerPlacer : MonoBehaviour
         if(TowerSelectionUI.SelectedTowerPrefab == null)
         {
             if(ghostInstance != null)
-            AudioManager.Instance.PlaySFX(canPlaceSFX);
                 Destroy(ghostInstance);
             return;
         }
@@ -57,7 +56,6 @@ public class TowerPlacer : MonoBehaviour
         if (!Input.GetMouseButtonDown(0)) return;
         
         if(TowerSelectionUI.SelectedTowerPrefab == null) return;
-        AudioManager.Instance.PlaySFX(canNotPlaceSFX);
         if(EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
         return;
 
@@ -66,13 +64,21 @@ public class TowerPlacer : MonoBehaviour
 
         Vector3Int cellPos = placementMap.WorldToCell(mouseWorldPos);
 
-        if(!placementMap.HasTile(cellPos)) return;
-        if (occupiedTiles.Contains(cellPos)) 
-        return;
+        bool validPlacement = placementMap.HasTile(cellPos) && !occupiedTiles.Contains(cellPos);
+
+        if (!validPlacement)
+        {
+            if (canNotPlaceSFX != null)
+                AudioManager.Instance.PlaySFX(canNotPlaceSFX);
+            return;
+        }
+
+        if (canPlaceSFX != null)
+            AudioManager.Instance.PlaySFX(canPlaceSFX);
 
         Instantiate(TowerSelectionUI.SelectedTowerPrefab, ghostInstance.transform.position, quaternion.identity);
 
-        CoinManager.instance.UpdateCoins(-TowerSelectionUI.SelectedTowerPrefab.GetComponent<Tower>().towerPrice);
+        CoinManager.instance.UpdateCoins(-TowerSelectionUI.SelectedTowerPrefab.GetComponent<Tower>().TowerPrice);
 
         TowerSelectionUI.SelectedTowerPrefab = null;
 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DestroyAfterTime : MonoBehaviour
 {
-    public float time;
+    private float time;
     void Start()
     {
         Destroy(gameObject, time);
