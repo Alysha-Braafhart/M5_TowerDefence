@@ -2,13 +2,36 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 2f;
-    public int health = 1;
-    public Transform[] waypoints;
+   [SerializeField] private float speed = 2f;
+    [SerializeField] private float health = 1f;
+    public float Health
+    {
+        get{return health;}
+        set{health = value;}
+    }
 
-    public int coinEarning = 5;
+    [SerializeField] private int damage = -1;
+    
+    [SerializeField] private Transform[] waypoints;
+    public Transform [] Waypoints
+    {
+        get{return waypoints;}
+        set{waypoints = value;}
+    }
 
-    public int currentWayPoint = 0;
+   [SerializeField] private int coinEarning = 5;
+    public int CoinEarning
+    {
+        get{return coinEarning;}
+    }
+
+    private int currentWayPoint = 0;
+    public WaveManager WaveManager { get; set; }
+    public int CurrentWayPoint
+    {
+        get{return currentWayPoint;}
+
+    }
     void Update()
     {
         if (waypoints == null || waypoints.Length == 0) return;
@@ -22,11 +45,21 @@ public class Enemy : MonoBehaviour
         {
             currentWayPoint++;
 
+            Tower e = target.GetComponent<Tower>();
+
             if(currentWayPoint >= waypoints.Length)
             {
-                HealthManager.instance.UpdateHealth(-1);
+                HealthManager.instance.UpdateHealth(damage);
                 Destroy(gameObject);
             }
+        }
+    }
+
+    void OnDestroy()
+    {
+        if(WaveManager != null)
+        {
+            WaveManager.EnemyDestroyed();
         }
     }
 }

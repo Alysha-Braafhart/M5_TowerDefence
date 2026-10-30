@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class SpeedUpManager : MonoBehaviour
 {
-    public bool speedUp;
-    public Image btnImage;
-    public Color normalColor;
-    public Color speedUpColor;
+    private bool speedUp;
+    [SerializeField] private Image btnImage;
+    [SerializeField] private Color normalColor;
+    [SerializeField] private Color speedUpColor;
 
     public void ToggleSpeedUp()
     {

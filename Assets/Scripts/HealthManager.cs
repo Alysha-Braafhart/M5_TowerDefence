@@ -6,8 +6,10 @@ public class HealthManager : MonoBehaviour
 {
     public static HealthManager instance;
 
-    public int health = 100;
-    public TextMeshProUGUI healthTxt;
+    private int health = 100;
+    [SerializeField] private TextMeshProUGUI healthTxt;
+
+    [SerializeField] private GameObject loseUI;
 
     void Awake()
     {
@@ -22,7 +24,8 @@ public class HealthManager : MonoBehaviour
 
         if(health <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Time.timeScale = 0;
+            loseUI.SetActive(true);
         }
     }
 }
